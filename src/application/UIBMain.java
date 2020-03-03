@@ -16,17 +16,37 @@ public class UIBMain {
 		Cliente cliente1 = new Cliente();
 		
 		System.out.print("Nome: ");
-		cliente1.name = sc.nextLine();
+		String name = sc.nextLine();
+		cliente1.setName(name);
 		System.out.println();
 		System.out.print("CPF: ");
-		cliente1.CPF = sc.nextLine();
+		String cpf = sc.nextLine();
+		cliente1.setCpf(cpf);
 		
-		conta1.saldo = 1500;
-		conta1.number = "0001";
+		conta1.setCliente(cliente1);
+		conta1.setNumber("0001-1");
 		cliente1.conta = conta1;
 		
-		
 		System.out.println(cliente1);
+		System.out.println("------------------------------");
+		
+		System.out.print("Valor a ser creditado: ");
+		double valor = sc.nextDouble();
+		conta1.creditar(valor);
+		
+		System.out.println();
+		System.out.println("Updated Data:");
+		System.out.println(cliente1);
+		System.out.println("------------------------------");
+		
+		System.out.print("Valor a ser debitado: ");
+		valor = sc.nextDouble();
+		conta1.debitar(valor);
+		
+		System.out.println();
+		System.out.println("Updated Data:");
+		System.out.println(cliente1);
+		
 		
 		sc.close();
 	}
