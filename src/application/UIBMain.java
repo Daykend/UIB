@@ -12,40 +12,36 @@ public class UIBMain {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		Conta conta1 = new Conta();
-		Cliente cliente1 = new Cliente();
-		
-		System.out.print("Nome: ");
-		String name = sc.nextLine();
-		cliente1.setName(name);
+		System.out.print("Quantos cadastros serão realizados: ");
+		final int TOTAL_DE_CADASTROS = sc.nextInt();
 		System.out.println();
-		System.out.print("CPF: ");
-		String cpf = sc.nextLine();
-		cliente1.setCpf(cpf);
 		
-		conta1.setCliente(cliente1);
-		conta1.setNumber("0001-1");
-		cliente1.conta = conta1;
+		System.out.println("---------------------------------------");
 		
-		System.out.println(cliente1);
-		System.out.println("------------------------------");
+		Cliente clientes[] = new Cliente[TOTAL_DE_CADASTROS];
+		Conta contas[] = new Conta[TOTAL_DE_CADASTROS];
 		
-		System.out.print("Valor a ser creditado: ");
-		double valor = sc.nextDouble();
-		conta1.creditar(valor);
+		for (int i=0; i < TOTAL_DE_CADASTROS; i++) {
+			clientes[i] = new Cliente();
+			contas[i] = new Conta();
+			System.out.print("Digite o nome do Cliente: ");
+			clientes[i].setName(sc.nextLine());
+			System.out.println();
+			System.out.print("Digite o CPF: ");
+			clientes[i].setCpf(sc.next());
+			System.out.println();
+			contas[i].setNumber(1001 + i);
+			System.out.print("Digite o deposito inical para conta de " + clientes[i].getName() + ": ");
+			contas[i].creditar(sc.nextDouble());
+			System.out.println();
+			contas[i].setCliente(clientes[i]);
+			System.out.println("---------------------------------------");
+			contas[i].setCliente(clientes[i]);
+			clientes[i].setConta(contas[i]);
+			
+		}
 		
-		System.out.println();
-		System.out.println("Updated Data:");
-		System.out.println(cliente1);
-		System.out.println("------------------------------");
 		
-		System.out.print("Valor a ser debitado: ");
-		valor = sc.nextDouble();
-		conta1.debitar(valor);
-		
-		System.out.println();
-		System.out.println("Updated Data:");
-		System.out.println(cliente1);
 		
 		
 		sc.close();

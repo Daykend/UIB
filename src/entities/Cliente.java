@@ -4,7 +4,7 @@ public class Cliente {
 	
 	private String name;
 	private String cpf;
-	public Conta conta;
+	private Conta conta;
 	
 	public Cliente() {
 		
@@ -29,6 +29,14 @@ public class Cliente {
 	
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	
+	public Conta getConta() {
+		return conta;
+	}
+	
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 	
 	public String toString() {

@@ -1,15 +1,15 @@
 package entities;
 
 public class Conta {
-	public String number;
-	public double saldo;
-	public Cliente cliente;
+	private Integer number;
+	private double saldo;
+	private Cliente cliente;
 	
 	public Conta() {
 		
 	}
 	
-	public Conta(String number, Cliente cliente) {
+	public Conta(Integer number, Cliente cliente) {
 		this.number = number;
 		this.cliente = cliente;
 	}
@@ -22,11 +22,22 @@ public class Conta {
 		saldo -= valor;
 	}
 	
-	public String getNumber() {
+	public String transferir(Conta conta, double valor) {
+		if (saldo < valor) {
+			return "Saldo atual insuficiente!";
+		}else {
+			debitar(valor);
+			conta.creditar(valor);
+			return "Operação Realizada com Sucesso!";
+		}
+		
+	}
+	
+	public Integer getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(Integer number) {
 		this.number = number;
 	}
 
@@ -43,7 +54,7 @@ public class Conta {
 	}
 
 	public String toString() {
-		return "Conta: " + number + "     Saldo atual: " + saldo;
+		return "Conta: " + number + "     Saldo atual: " + String.format("%.2f", saldo);
 	}
 	
 	
