@@ -4,6 +4,8 @@ public class Cliente {
 	
 	private String name;
 	private String cpf;
+	private String email;
+	private String dataNasci;
 	private Conta conta;
 	
 	public Cliente() {
@@ -39,6 +41,31 @@ public class Cliente {
 		this.conta = conta;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getDataNasci() {
+		return dataNasci;
+	}
+
+	public void setDataNasci(String dataNasci) {
+		this.dataNasci = dataNasci;
+	}
+	
+	public boolean verificarDadosDoCliente (String cpf, String email, String dataNascimento) {
+		if(getCpf().equals(cpf) && getEmail().equals(email) && getDataNasci().equals(dataNascimento)){
+			return true;
+			
+		} else {
+			return false;
+		}
+	}
+
 	public String toString() {
 		return "Cliente: " + name + "     CPF: " + cpf + "\n" + conta;
 	}

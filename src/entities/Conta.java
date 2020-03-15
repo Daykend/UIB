@@ -3,6 +3,7 @@ package entities;
 public class Conta {
 	private Integer number;
 	private double saldo;
+	private Integer senha;
 	private Cliente cliente;
 	
 	public Conta() {
@@ -32,6 +33,11 @@ public class Conta {
 		}
 		
 	}
+	
+	public void setSenha(Integer senha) {
+		this.senha = senha;
+	}
+	
 	
 	public Integer getNumber() {
 		return number;
