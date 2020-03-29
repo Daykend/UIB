@@ -39,7 +39,7 @@ public class UIBMain {
 					System.out.print("Digite o CPF: ");
 					clientes[i].setCpf(sc.next());
 					contas[i].setNumber(1001 + i);
-					System.out.print("Digite uma senha numérica com 6 digitos: ");
+					System.out.print("Digite uma senha numérica com 4 digitos: ");
 					contas[i].setSenha(sc.nextInt());
 					System.out.println();
 					System.out.print("Digite o valor para deposito inical da conta de " + clientes[i].getName() + ": ");
@@ -48,9 +48,9 @@ public class UIBMain {
 					contas[i].setCliente(clientes[i]);
 					clientes[i].setConta(contas[i]);
 					i++;
-					System.out.println("Deseja cadastrar nova conta? (s/n): ");
-					String escolha = sc.next();
-					if(escolha.equals("n")) {
+					System.out.println("Deseja cadastrar um novo cliente? (s/n): ");
+					char escolha = sc.next().charAt(0);
+					if(escolha == 'n') {
 						break;
 					} else {
 						continue;
